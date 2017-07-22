@@ -25,3 +25,6 @@
 *.maf
 *.mtc
 *.mtc0
+
+# add pdf exclution, modified by GYingchao on 2017/07/22
+*.pdf
