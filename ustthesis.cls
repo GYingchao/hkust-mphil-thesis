@@ -626,52 +626,52 @@
 %
 % cheewai
 
-% Chan:
-%	Make changes according to the guidelines released on March 2001.
-%	"Authorsation" is changed to "Authorization" instead.
-\def\authorise{
-%	\pchapter{Authorisation}
-%        \addcontentsline{toc}{chapter}{Authorisation Page}
-        \addcontentsline{toc}{chapter}{Authorization Page}
-% Chan:
-%	Add some vertical space.
-	\mbox{} \vspace{1cm}
-	\begin{center}
-%	    \underline{\Lbi Authorisation}
-	    \underline{\Lbi Authorization}
-	\end{center}
-	\vspace{1cm}
-	\textspace
-	\mbox{}
-	\par\indent
-	{I hereby declare that I am the sole author of the thesis.}
-	\par\vspace{1cm}
-	\indent
-%	{I authorise The Hong Kong University of Science and Technology to lend
-	{I authorize the Hong Kong University of Science and Technology to lend
-this thesis to other institutions or individuals for the purpose of scholarly
-research.}
-% Chan:
-%	Keep each paragraph with equal distance.
-%	\par\vspace{6cm}
-	\par\vspace{1cm}
-	\indent
-%	{I further authorise The Hong Kong University of Science and Technology
-	{I further authorize the Hong Kong University of Science and Technology
-to reproduce the thesis by photocopying or by other means, in total or in part,
-at the request of other institutions or individuals for the purpose of
-scholarly research.}
-% Chan:
-%	Add a signature part for the candidate.
-	\par\vspace{4cm}
-        \begin{center}
-          \candidate{\@author}
-        \end{center}
-	\textspaceundo
-%	\typeout{Authorisation Page}
-	\typeout{Authorization Page}
-	\newpage
-}
+%% Chan:
+%%	Make changes according to the guidelines released on March 2001.
+%%	"Authorsation" is changed to "Authorization" instead.
+%\def\authorise{
+%%	\pchapter{Authorisation}
+%%        \addcontentsline{toc}{chapter}{Authorisation Page}
+        %\addcontentsline{toc}{chapter}{Authorization Page}
+%% Chan:
+%%	Add some vertical space.
+	%\mbox{} \vspace{1cm}
+	%\begin{center}
+%%	    \underline{\Lbi Authorisation}
+	    %\underline{\Lbi Authorization}
+	%\end{center}
+	%\vspace{1cm}
+	%\textspace
+	%\mbox{}
+	%\par\indent
+	%{I hereby declare that I am the sole author of the thesis.}
+	%\par\vspace{1cm}
+	%\indent
+%%	{I authorise The Hong Kong University of Science and Technology to lend
+	%{I authorize the Hong Kong University of Science and Technology to lend
+%this thesis to other institutions or individuals for the purpose of scholarly
+%research.}
+%% Chan:
+%%	Keep each paragraph with equal distance.
+%%	\par\vspace{6cm}
+	%\par\vspace{1cm}
+	%\indent
+%%	{I further authorise The Hong Kong University of Science and Technology
+	%{I further authorize the Hong Kong University of Science and Technology
+%to reproduce the thesis by photocopying or by other means, in total or in part,
+%at the request of other institutions or individuals for the purpose of
+%scholarly research.}
+%% Chan:
+%%	Add a signature part for the candidate.
+	%\par\vspace{4cm}
+        %\begin{center}
+          %\candidate{\@author}
+        %\end{center}
+	%\textspaceundo
+%%	\typeout{Authorisation Page}
+	%\typeout{Authorization Page}
+	%\newpage
+%}
 
 % Chan:
 %	Add a new definition \TOffset for the extra vertical space
