@@ -626,52 +626,52 @@
 %
 % cheewai
 
-% Chan:
-%	Make changes according to the guidelines released on March 2001.
-%	"Authorsation" is changed to "Authorization" instead.
-\def\authorise{
-%	\pchapter{Authorisation}
-%        \addcontentsline{toc}{chapter}{Authorisation Page}
-        \addcontentsline{toc}{chapter}{Authorization Page}
-% Chan:
-%	Add some vertical space.
-	\mbox{} \vspace{1cm}
-	\begin{center}
-%	    \underline{\Lbi Authorisation}
-	    \underline{\Lbi Authorization}
-	\end{center}
-	\vspace{1cm}
-	\textspace
-	\mbox{}
-	\par\indent
-	{I hereby declare that I am the sole author of the thesis.}
-	\par\vspace{1cm}
-	\indent
-%	{I authorise The Hong Kong University of Science and Technology to lend
-	{I authorize the Hong Kong University of Science and Technology to lend
-this thesis to other institutions or individuals for the purpose of scholarly
-research.}
-% Chan:
-%	Keep each paragraph with equal distance.
-%	\par\vspace{6cm}
-	\par\vspace{1cm}
-	\indent
-%	{I further authorise The Hong Kong University of Science and Technology
-	{I further authorize the Hong Kong University of Science and Technology
-to reproduce the thesis by photocopying or by other means, in total or in part,
-at the request of other institutions or individuals for the purpose of
-scholarly research.}
-% Chan:
-%	Add a signature part for the candidate.
-	\par\vspace{4cm}
-        \begin{center}
-          \candidate{\@author}
-        \end{center}
-	\textspaceundo
-%	\typeout{Authorisation Page}
-	\typeout{Authorization Page}
-	\newpage
-}
+%% Chan:
+%%	Make changes according to the guidelines released on March 2001.
+%%	"Authorsation" is changed to "Authorization" instead.
+%\def\authorise{
+%%	\pchapter{Authorisation}
+%%        \addcontentsline{toc}{chapter}{Authorisation Page}
+        %\addcontentsline{toc}{chapter}{Authorization Page}
+%% Chan:
+%%	Add some vertical space.
+	%\mbox{} \vspace{1cm}
+	%\begin{center}
+%%	    \underline{\Lbi Authorisation}
+	    %\underline{\Lbi Authorization}
+	%\end{center}
+	%\vspace{1cm}
+	%\textspace
+	%\mbox{}
+	%\par\indent
+	%{I hereby declare that I am the sole author of the thesis.}
+	%\par\vspace{1cm}
+	%\indent
+%%	{I authorise The Hong Kong University of Science and Technology to lend
+	%{I authorize the Hong Kong University of Science and Technology to lend
+%this thesis to other institutions or individuals for the purpose of scholarly
+%research.}
+%% Chan:
+%%	Keep each paragraph with equal distance.
+%%	\par\vspace{6cm}
+	%\par\vspace{1cm}
+	%\indent
+%%	{I further authorise The Hong Kong University of Science and Technology
+	%{I further authorize the Hong Kong University of Science and Technology
+%to reproduce the thesis by photocopying or by other means, in total or in part,
+%at the request of other institutions or individuals for the purpose of
+%scholarly research.}
+%% Chan:
+%%	Add a signature part for the candidate.
+	%\par\vspace{4cm}
+        %\begin{center}
+          %\candidate{\@author}
+        %\end{center}
+	%\textspaceundo
+%%	\typeout{Authorisation Page}
+	%\typeout{Authorization Page}
+	%\newpage
+%}
 
 % Chan:
 %	Add a new definition \TOffset for the extra vertical space
@@ -1798,92 +1798,92 @@ scholarly research.}
 %    \let\footnotesize\small % Local definitions to make \thanks produce
 %    \let\footnoterule\relax % \normalsize footnotes with no separating rule.
 %    \setcounter{page}{0}
-    \null
-    \parskip=0pt
-%    \ifPhD
-      \setcounter{@minmembers}{8} % PhD committees have at least 5 members
-%    \else
-%      \setcounter{@minmembers}{3} % Masters committees have at least 3 members
-%    \fi
-% Chan:
-%	Add certain vertical space before the title.
-    \TOffset
-    \begin{center}
-      {\Lbi \uppercase\expandafter{\@title} \par}
-% Chan:
-%	Make changes according to the guidelines released on March 2001.
-%      \vglue 8ex
-%      {\lbi BY \par}
-%      \vglue 8ex
-      \vglue 6ex
-      {\lbi by \par}
-      \vglue 2ex
-      {\lbi \uppercase\expandafter{\@author} \par}
-% Chan:
-%	Extend the centering environment for the whole page.
-%    \end{center}
-        \textspace
-        \mbox{}
-        \par\indent
-% Chan:
-%	Make changes according to the guidelines released on March 2001.
-    {This is to certify that I have examined the above \@DegreeSName thesis} \\
-    {and have found that it is complete and satisfactory in all respects,} \\
-    {and that any and all revisions required by} \\
-    {the thesis examination committee have been made.}
-%    \begin{flushleft}
-    \vglue 0ex plus 1fill
-%    \parbox{0.75\textwidth}{
-    \parbox{\maxmem}{
-%      APPROVED:\par
-%      \vglue 6ex
-      {	% @membersprinted counts the number of committee members printed so far
-	\newcounter{@membersprinted}\setcounter{@membersprinted}{0}
- 	% Print the committee members defined by the user.
-	\loop
-	\ifnum \value{@membersprinted} < \value{@members} 
-	  \addtocounter{@membersprinted}{1}
-	  \ifcase\value{@membersprinted}
-	    \typeout{Thesis style--internal error printing members.} \or
-	    \@membera \or
-	    \@memberb \or
-	    \@memberc \or
-	    \@memberd \or
-	    \@membere \or
-	    \@memberf \or
-	    \@memberg \or
-	    \@memberh
-	  \else \typeout{Thesis style--internal error printing members.}
-	  \fi
-	\repeat
-	% If the minimum number of signature lines haven't been printed,
-	% print some more.
-%	\loop
-%	\ifnum \value{@membersprinted} < \value{@minmembers}
-%	  \addtocounter{@membersprinted}{1}
-%	  \@member{}
-%	\repeat
-      }
-%    \vglue -6ex
-    \vglue -3ex
-    } \par
-    {\normalsize Department of \@department\par}
-%    \vglue 3ex plus 1fill
-    {\normalsize \today\par}
-%   {\normalsize Date:\hfill\rule[-.4ex]{2.35in}{.5pt}}
-%    }\hfill\par
-%    \end{flushleft}
-% Chan:
-%	Move \end{center} from above position to here.
-    \end{center}
-    \addcontentsline{toc}{chapter}{Signature Page}
-    \typeout{Signature Page}
-    \textspaceundo
-    \newpage
-  \end{titlepage}
-
+    %\null
+    %\parskip=0pt
+%%    \ifPhD
+      %\setcounter{@minmembers}{8} % PhD committees have at least 5 members
+%%    \else
+%%      \setcounter{@minmembers}{3} % Masters committees have at least 3 members
+%%    \fi
+%% Chan:
+%%	Add certain vertical space before the title.
+    %\TOffset
+    %\begin{center}
+      %{\Lbi \uppercase\expandafter{\@title} \par}
+%% Chan:
+%%	Make changes according to the guidelines released on March 2001.
+%%      \vglue 8ex
+%%      {\lbi BY \par}
+%%      \vglue 8ex
+      %\vglue 6ex
+      %{\lbi by \par}
+      %\vglue 2ex
+      %{\lbi \uppercase\expandafter{\@author} \par}
+%% Chan:
+%%	Extend the centering environment for the whole page.
+%%    \end{center}
+        %\textspace
+        %\mbox{}
+        %\par\indent
+%% Chan:
+%%	Make changes according to the guidelines released on March 2001.
+    %{This is to certify that I have examined the above \@DegreeSName thesis} \\
+    %{and have found that it is complete and satisfactory in all respects,} \\
+    %{and that any and all revisions required by} \\
+    %{the thesis examination committee have been made.}
+%%    \begin{flushleft}
+    %\vglue 0ex plus 1fill
+%%    \parbox{0.75\textwidth}{
+    %\parbox{\maxmem}{
+%%      APPROVED:\par
+%%      \vglue 6ex
+      %{	% @membersprinted counts the number of committee members printed so far
+	%\newcounter{@membersprinted}\setcounter{@membersprinted}{0}
+ 	%% Print the committee members defined by the user.
+	%\loop
+	%\ifnum \value{@membersprinted} < \value{@members} 
+	  %\addtocounter{@membersprinted}{1}
+	  %\ifcase\value{@membersprinted}
+	    %\typeout{Thesis style--internal error printing members.} \or
+	    %\@membera \or
+	    %\@memberb \or
+	    %\@memberc \or
+	    %\@memberd \or
+	    %\@membere \or
+	    %\@memberf \or
+	    %\@memberg \or
+	    %\@memberh
+	  %\else \typeout{Thesis style--internal error printing members.}
+	  %\fi
+	%\repeat
+	%% If the minimum number of signature lines haven't been printed,
+	%% print some more.
+%%	\loop
+%%	\ifnum \value{@membersprinted} < \value{@minmembers}
+%%	  \addtocounter{@membersprinted}{1}
+%%	  \@member{}
+%%	\repeat
+      %}
+%%    \vglue -6ex
+    %\vglue -3ex
+    %} \par
+    %{\normalsize Department of \@department\par}
+%%    \vglue 3ex plus 1fill
+    %{\normalsize \today\par}
+%%   {\normalsize Date:\hfill\rule[-.4ex]{2.35in}{.5pt}}
+%%    }\hfill\par
+%%    \end{flushleft}
+%% Chan:
+%%	Move \end{center} from above position to here.
+    %\end{center}
+    %\addcontentsline{toc}{chapter}{Signature Page}
+    %\typeout{Signature Page}
+    %\textspaceundo
+    %\newpage
+  %\end{titlepage}
 %
-% End of TitlePage
+%%
+%% End of TitlePage
 %
 
   \setcounter{footnote}{0} % Footnotes start at zero again.

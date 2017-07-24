@@ -1,56 +1,73 @@
 \chapter{Draw with Me} \label{sec-mainwork}
 
-1 claim contribution here ?
+		In this chapter, we introduce our facial drawing assistant named \textit{Draw with Me} in the following four sections. First we describe the system appearance and how it works for users. Then we phrase the powerful visual guides provided by the system, which is the main part of our technical contribution, and how to implement such accurate guidance by introducing our feature reinforcement algorithm. Afterward we talk about our novel canvas, which mimics traditional pencil sketching and provided more efficient operations for learners superior to the real world practicing. In the end we explain how to coordinate the interactions in the teaching and practicing process with the help of the classic DFA model.
+
+\section{System Overview}
+
+		Here is a brief description of \textit{Draw with Me}, which basically consists of three components, the tutor, the canvas and the DFA guided interaction. In the following we show the overview of the user interface and illustrate how system works by flow chart.
 	
-		1.1 quantified drawing instructions
-	
-		1.2 guidance is of expert level accuracy due to facial feature reinforcement
+		\subsection{User Interface Design}
 		
-				reinforcement is twofold: augmentation and refinement
-	
-		1.3 teaching platform, DFA driven work flow, canvas ...
-
-	
-2 system overview
-	
-		2.1 UI
-		
-		2.2 technical flow
-
-
-3 guidance
+			The UI design is based on the \textit{Just Enough} principle for conciseness. We provide straightforward control without too much button or sub-menu, which reduces distraction and avoids choice phobia. The canvas and pencil is closest to physical reality besides extra operations for efficiency.
 			
-		3.1 top-down logic
+			%	UI Description
+			As figure \ref{fig:UI} shows the tutor panel in the left side is used to display the face photo. More importantly, it will generate all kinds of visual guides on top of the photo after the learners start to draw. These guides will be elaborated on section \ref{sec-vg}. The right side panel imitates the physical sketching paper, which we call it canvas. 
+		\begin{figure}[htbp]
+			\centering
+				\includegraphics[width=0.70\textwidth]{D:/documents/ust2013/UI_1.JPG}
+			\caption{User Interface Overview}
+			\label{fig:UI}
+		\end{figure}
 			
-		3.2 top implementation
+		\subsection{Work Flow}
+			Basically, after user choose a photo to draw, the system extracts necessary facial features from the photo and automatically generates a series of visual guides to be used in the whole teaching process. which is illustrated in flow chart .. \\
+			\begin{center}
+			insert flow chart here
+			\end{center}
+
+\section{Visual Guides} \label{sec-vg}
+		The visual guides aims to replace teachers by providing thorough non textual instructions by utilizing various cues such as highlighted regions, scaffolding lines, reckon by time and sketch animation.
+						\begin{center}
+							insert a table of figs to show the effect accordingly
+						\end{center}
 						
-		3.3 down implementation
+		\subsection{Top Level Guidance}
+		>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+				facial organ distribution, geometric relations, drawing order etc.
+						
+		\subsection{Organ-wise guidance}
+				show eye, nose, mouth e.g. here 
+				
+		\subsection{Implementation}
 			
-				3.3.1 facial feature points collection
+				facial feature points collection \\
 					
-				3.3.2 feature reinforcement 
+				feature reinforcement \\
 					
-						a. intro 2 ez-skecthing
+						a. intro 2 ez-skecthing \\
 					
-						b. augmentation, e.g. outer eye lids
+						b. augmentation, e.g. outer eye lids \\
 					
-						c. refinement, e.g. chin contour, inner eye lids, (mouth lips still not work)
+						c. refinement, e.g. chin contour, inner eye lids, (mouth lips still not work) \\
 							
-						d. from points to curved lines
+						d. from points to curved lines \\
 
+			
 							
-4 canvas
+\section{Drawing on Canvas}
 	
-		4.1 pencil like strokes visualization
+		\subsection{Pencil Style visualization}
 			
-		4.2 save, load, withdraw user sketches
+		\subsection{Productivity Tools}
+					save, load, withdraw user sketches
+			
+					
+					
+\section{Interaction between above two}
 
-
-5 interaction between above two
-
-		5.1	intro 2 DFA
+		\subsection{Intro 2 DFA}
 		
-		5.2	DFA flow chart 
+		\subsection{DFA flow chart in this system}
 
 
 
