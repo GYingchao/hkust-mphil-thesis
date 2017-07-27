@@ -1,73 +1,105 @@
 \chapter{Draw with Me} \label{sec-mainwork}
 
-		In this chapter, we introduce our facial drawing assistant named \textit{Draw with Me} in the following four sections. First we describe the system appearance and how it works for users. Then we phrase the powerful visual guides provided by the system, which is the main part of our technical contribution, and how to implement such accurate guidance by introducing our feature reinforcement algorithm. Afterward we talk about our novel canvas, which mimics traditional pencil sketching and provided more efficient operations for learners superior to the real world practicing. In the end we explain how to coordinate the interactions in the teaching and practicing process with the help of the classic DFA model.
+		In this chapter, we introduce our facial drawing assistant named \textit{Draw with Me} in the following four sections. First we describe the system appearance and basic operations to show how it works for users. Then we phrase the powerful visual guides provided by the system, which is the main part of our technical contribution, and how to implement such accurate guidance by introducing our feature enhancement algorithm. Afterward we talk about our novel canvas, which mimics traditional pencil sketching and provided more efficient operations for learners superior to the real world practicing. In the end we explain how to coordinate the interactions in the teaching and practicing process with the help of the classic DFA model.
 
-\section{System Overview}
+\section{User Interface}
 
-		Here is a brief description of \textit{Draw with Me}, which basically consists of three components, the tutor, the canvas and the DFA guided interaction. In the following we show the overview of the user interface and illustrate how system works by flow chart.
+		Basically \textit{Draw with Me} consists of three logical components, the tutor, the canvas and the DFA guided interaction. In the following, we will elaborate them one by one. 
 	
-		\subsection{User Interface Design}
-		
-			The UI design is based on the \textit{Just Enough} principle for conciseness. We provide straightforward control without too much button or sub-menu, which reduces distraction and avoids choice phobia. The canvas and pencil is closest to physical reality besides extra operations for efficiency.
-			
-			%	UI Description
-			As figure \ref{fig:UI} shows the tutor panel in the left side is used to display the face photo. More importantly, it will generate all kinds of visual guides on top of the photo after the learners start to draw. These guides will be elaborated on section \ref{sec-vg}. The right side panel imitates the physical sketching paper, which we call it canvas. 
 		\begin{figure}[htbp]
 			\centering
 				\includegraphics[width=0.70\textwidth]{D:/documents/ust2013/UI_1.JPG}
 			\caption{User Interface Overview}
 			\label{fig:UI}
 		\end{figure}
+		
+		%	UI Overview
+		
+		As figure \ref{fig:UI} shows our main user interface is composed of two panels side by side. In the left hand is the tutor panel, which is used to display the selected face photo, and more importantly, to generate all kinds of visual guides on top of the photo after the learners start to draw. We design it as our ''AI teacher'' by quantifying the human tutor's instructions into programs so that the computer can understand. By providing well designed visual guides, which will be elaborated on section \ref{sec-vg}, the system does a good imitation to human teacher. Besides the tutor panel, on the right hand side is the canvas panel, which takes the place of physical sketching paper. It is responsible to record and display every stroke from the users, whether it's drawn either from our specialized digital pen or one of user's fingers on a touch screen, or from a mouse. The displaying strokes on the canvas have been textured in advance in order to mimic pencil strokes. 
+		
+		When we design the user interface, we hope users of our system can be fixed on the teaching and practicing scenario, instead of interrupted by complicated interactions such as menu selections, button clicks etc. So the design principle is set to be as simple as possible, meanwhile simulate the physical drawing process as close as possible. Therefore, we provide straightforward control without too much button or sub-menu. The canvas and pencil is closest to physical reality besides extra operations like stroke withdraw for efficiency.
 			
-		\subsection{Work Flow}
-			Basically, after user choose a photo to draw, the system extracts necessary facial features from the photo and automatically generates a series of visual guides to be used in the whole teaching process. which is illustrated in flow chart .. \\
+		%	UI Operations
+		
+		We would like to introduce the basic operations by describing a \textbf{typical} scenario of using our system. After \textit{Draw with Me} start up, users are required to set the face to draw by simply clicking ''Load Image'' on the menu bar. A navigation window will show up for users to choose a preferred portrait photo file storing in the local PC file system. After that our system will pass the input photo to third party  facial detection and landmark extraction APIs to get the raw facial feature points and do some clipping to guarantee the facial region in the photo is on fully display. Hereafter users can see the displayed portrait photo in the tutor panel, meanwhile the system does feature enhancement and guides generation work in the backstage. Then a six-square auxiliary box appears in the tutor panel, which suggests users to be prepared and our system starts to teach by showing the first guide. By following the six-square guide, it's very clear for users to see the location relations between facial organs and the differences between square boundary lines and organs' distribution (Outer boundary lines of six-square shows the difference to the skull while inner bounder lines measures the differences to the organs). We call these differences good disparities as they reveals the geometric identity of the face, which we rely on to reproduce it with our pen. The tutor panel will wait for user's drawing the head outlines on the canvas before it moves on to another guide. Next the tutor will generate some horizontal and vertical dot lines to further measure the proportions and approximate positions of facial organs, eyes, nose and the mouth. Users can draw the outlines of each organ on the canvas based on the dot lines' auxiliary. The above two steps of tutoring guides makes users able to draw the face in a very coarse level by observing locations, boundary positions as well as proportions carefully. After that, the tutor panel will generate guides for each facial organ. Zoom options are provided by the tutor, as some organ details may not be easily captured in the global view. The right drawing order will be eyes first, nose then and mouth at last, which is designed to be expressed by the movement of highlighting areas. That is to say, by each time users learn to draw a facial organ, the tutor will only highlight the region of interest (ROI) and darken the others. The drawing order is controlled by the movement of ROIs. In the whole drawing process, users can add and drawback strokes on canvas by the same effort, without causing eraser pollution problem. Users can save their manuscript anytime they would like to pause and load their works easily for comparison.
+		
+		A collection of visual guides are displayed in Figure ?\\
+		\begin{center}
+			insert visual guides fig table here
+			\end{center}
+		
+		% \subsection{Work Flow}
+		Chart ? shows the typical working flow of \textit{Draw with Me}, namely from user choose a photo to draw, feature points extraction, feature enhancement to teaching and practicing interaction. \\
 			\begin{center}
 			insert flow chart here
 			\end{center}
 
-\section{Visual Guides} \label{sec-vg}
-		The visual guides aims to replace teachers by providing thorough non textual instructions by utilizing various cues such as highlighted regions, scaffolding lines, reckon by time and sketch animation.
-						\begin{center}
-							insert a table of figs to show the effect accordingly
-						\end{center}
-						
-		\subsection{Top Level Guidance}
-		>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-				facial organ distribution, geometric relations, drawing order etc.
-						
-		\subsection{Organ-wise guidance}
-				show eye, nose, mouth e.g. here 
-				
-		\subsection{Implementation}
-			
-				facial feature points collection \\
-					
-				feature reinforcement \\
-					
-						a. intro 2 ez-skecthing \\
-					
-						b. augmentation, e.g. outer eye lids \\
-					
-						c. refinement, e.g. chin contour, inner eye lids, (mouth lips still not work) \\
-							
-						d. from points to curved lines \\
+		According to Chart ?, some special statuses are stated here as a supplement. The first case is when users suddenly stop the tutoring process by trigger the ''Load Image'' menu again, our system will notify by a dialog window for users to choose whether continue to choose another photo or back to save the current work. Another case is we do set timers to record the practicing period, thus a notice dialog will show up when time is over to let users choose what to do, continuing awaiting for the current stage or jump to the next one. So a dead waiting will never take place. One more case is when users do not practice by following the tutor's orders, for example, maybe currently the nose guides are provided by the tutor but users are drawing in the area which is related to the mouth according to our canvas's records, \textit{Draw with Me} will also prompt a dialog window for users to choose terminate tutor's instructions to draw by themselves or continue the tutorial triggered by users correct drawing on the nose related region.
 
-			
-							
-\section{Drawing on Canvas}
-	
-		\subsection{Pencil Style visualization}
-			
-		\subsection{Productivity Tools}
-					save, load, withdraw user sketches
-			
-					
-					
-\section{Interaction between above two}
-
-		\subsection{Intro 2 DFA}
+\section{Feature Enhancement} \label{sec-vg}
+		In order to replace human teachers, the tutor panel provides thorough non-textual instructions by utilizing various vision cues such as highlighted regions, scaffolding lines, reckon by time and sketch animation. These visual guides cannot be so accurate and powerful without our enhanced features. Figure ? shows the raw feature points collected by our system. From which we can see that there is no feature points in the outer eyelid and flaws and inaccuracy points can also be found in the state of the art face detection techniques. To our knowledge, lack of details problem is because face detection is a general technique for global facial landmarks. Detailed eyelids are not in their current concern. Besides, mismatching problem are lying in the intrinsic of these learning based techniques, which cannot handle details the way as local optimizing algorithms do. \\
 		
-		\subsection{DFA flow chart in this system}
+		\begin{center}
+				insert raw feature points fig here
+		\end{center}
+		
+		Based on the above observation, we would like to solve the facial feature points inaccuracy and deficiency (for outer eyelids) problems with the help of EZ-Sketching. EZ-Sketching is a sketch refinement tool which considers three-level optimization at the same time. We solve the feature inaccuracy problem by using EZ-Sketching's local optimization algorithm and work out the feature deficiency problem by using EZ-Sketching's local and semi-global optimizations simultaneously. Let us elaborate accordingly as follows.
+		
+		We modified EZ-Sketching's interface to allow directly passing strokes into the optimizer instead of from touch screen inputs. By connecting respective facial feature points into a ''feature stroke'', we can adopt local optimizer to refine the positions of mismatching points back to the underlying image features. Thus the refined feature stroke is as accurate as possible with the respective local image feature. Figure ? shows some of the refined feature points from chin contour or lower eyelids.
+		
+		\begin{center}
+				insert fig to show local ez refined feature points here
+		\end{center}
+		
+		To solve the feature deficiency problem, we need to augment corresponding feature points for outer eyelids. First we compute a set of artificial points for each outer eyelid as the initial feature points, based on the geometry relations illustrated in Figure ? By simply passing the initial points into EZ-Sketching's local optimizer cannot fix this problem due to the closeness and overlaps between the outer eyelids and inner ones. The same circumstance occured when we switch to other local optimization based algorithms. So we brainstorm to use EZ-Sketching local and semi-global optimiztion at the same time to optimize both outer eyelids and inner eyelids, and Figure ? shows that we achieved very exciting results.
+		
+		\begin{center}
+				insert fig to show initial feature points for outer eyelid
+		\end{center}
+
+		\begin{center}
+				insert fig to show augmented outer eyelids
+		\end{center}
+
+\section{DFA guided Interaction}
+
+		%\subsection{Top Level Guidance}
+		%
+				%facial organ distribution, geometric relations, drawing order etc.
+						%
+		%\subsection{Organ-wise guidance}
+				%show eye, nose, mouth e.g. here 
+				%
+		%\subsection{Implementation}
+			%
+				%facial feature points collection \\
+					%
+				%feature enhancement \\
+					%
+						%a. intro 2 ez-skecthing \\
+					%
+						%b. augmentation, e.g. outer eye lids \\
+					%
+						%c. refinement, e.g. chin contour, inner eye lids, (mouth lips still not work) \\
+							%
+						%d. from points to curved lines \\
+%
+			%
+							%
+%\section{Drawing on Canvas}
+	%
+		%\subsection{Pencil Style visualization}
+			%
+		%\subsection{Productivity Tools}
+					%save, load, withdraw user sketches
+			%
+					%
+					%
+%\section{Interaction between above two}
+%
+		%\subsection{Intro 2 DFA}
+		%
+		%\subsection{DFA flow chart in this system}
 
 
 
